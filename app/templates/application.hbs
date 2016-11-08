@@ -1,0 +1,9 @@
+<!-- Template that renders on all pages -->
+<div class="menu">
+    {{#link-to '/'}} Home {{/link-to}} 
+    {{#link-to 'login'}} Login {{/link-to}} 
+    {{#link-to 'register'}} Register {{/link-to}}
+</div>
+<div class="body">
+    {{outlet}}
+</div>

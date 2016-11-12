@@ -1,13 +1,24 @@
-<div class="">
+<h1>Login</h1>
 
-    <h2>Please login</h2>
-    <p>If you dont have an account you can register one here: {{#link-to 'register'}} Register here {{/link-to}}
-    </p>
-    <p>
-        <form action="">
-            Username: <input type="text"><br> 
-            Password: <input type="password"><br>
-            <button type="button" onclick="alert('not yet implemented')">Login </button>
-        </form>
-    </p>
+<div class="well">Or create an account {{#link-to 'register'}}here{{/link-to}}.</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Username:</label> {{input type="text" class="form-control" placeholder="Your username" value=username}}
+        </div>
+        <div class="form-group">
+            <label>Password:</label> {{input type="password" class="form-control" placeholder="Your password" value=password}}
+        </div>
+        <button class="btn btn-success" {{action 'loginUser'}} disabled="{{unless isValid 'disabled'}}">Login</button>
+    </div>
 </div>
+
+{{#if responseMessage}}
+<br>
+<div class="col-md-4">
+    <div class="alert alert-danger" role="alert">
+        <p id="success-alert">{{responseMessage}}</p>
+    </div>
+</div>
+{{/if}}

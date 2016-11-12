@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> {{#link-to 'index' class="navbar-brand"}}Movie Lists{{/link-to}}
+        </div>
+
+        <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-nav">
+                {{#nav-link-to 'index'}}Home{{/nav-link-to}}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {{#nav-link-to 'register'}}Register{{/nav-link-to}}
+                {{#nav-link-to 'login'}}Login{{/nav-link-to}}
+            </ul>
+        </div>
+    </div>
+</nav>

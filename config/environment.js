@@ -1,11 +1,28 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
+
   var ENV = {
     modulePrefix: 'film-liste',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+      apiKey: "AIzaSyAVlbQ58wisSaVxtkm-NM8eQwWOuMn2ZE4",
+      authDomain: "movie-list-7e973.firebaseapp.com",
+      databaseURL: "https://movie-list-7e973.firebaseio.com",
+      storageBucket: "movie-list-7e973.appspot.com",
+      messagingSenderId: "956768705350"
+    },
+
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

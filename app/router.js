@@ -11,6 +11,9 @@ Router.map(function() {
   this.route('login');
   this.route('register');
   this.route('create-list');
+  this.route('movie', { path: '/movie' });
+  this.route('movies');
+  this.route('test');
 });
 
 export default Router;

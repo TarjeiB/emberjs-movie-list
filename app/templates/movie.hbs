@@ -1,5 +1,7 @@
-{{outlet}}
 <div>
+{{#each model as |movie|}}
+  <p> Movie: {{movie.Title}} </p>
+{{/each}}
 <p> Movie </p>
 <p>{{model.Title}}</p>
 <p>Year: {{model.Year}}</p>

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function() {
-    return this.store.findAll('movie');
+  model: function(params) {
+    return this.store.findAll('movie', params.movie_imdbID);
   }
 });

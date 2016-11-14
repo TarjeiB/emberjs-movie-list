@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('login');
   this.route('register');
   this.route('create-list');
-  this.route('movie');
+  this.route('movie', { path: "movie/:movie_imdbID"});
   this.route('movies');
   this.route('test');
 });

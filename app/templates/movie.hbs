@@ -1,14 +1,8 @@
 <div>
 {{#each model as |movie|}}
-  <p> Movie: {{movie.Title}} </p>
+  <p> {{movie.Title}} </p>
+  <p>Year: {{movie.Year}}</p>
+  <p>IMDB rating {{movie.imdbRating}}</p>
+  <img src="{{movie.Poster}}" />
 {{/each}}
-<p> Movie </p>
-<p>{{model.Title}}</p>
-<p>Year: {{model.Year}}</p>
-<p>IMDB rating{{model.imdbRating}}</p>
-<ul>
-   <li>
-     <img src="model.Poster" />
-   </li>
-</ul>
 </div>

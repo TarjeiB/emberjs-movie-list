@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   activate: function() {
-    this.controllerFor('logout').send('logoutUser');
+      sessionStorage.clear();
+      window.location.reload();
+      this.transitionToRoute('/');
   }
 });

@@ -4,9 +4,8 @@ export default Ember.Controller.extend({
 
   isValidUsername: Ember.computed.gte('username.length', 2),
   isValidPassword: Ember.computed.gte('password.length', 3),
-
+  
   isValid: Ember.computed.and('isValidUsername', 'isValidPassword'),
-
   actions: {
 
     loginUser: function () {
@@ -20,7 +19,7 @@ export default Ember.Controller.extend({
       window.setTimeout(function () {
         this.$(".alert").fadeOut(1500);
       }, 5000);
-
+      
       this.store.query('user', {
         orderBy: 'username',
         equalTo: username,

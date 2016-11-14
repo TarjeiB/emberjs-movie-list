@@ -26,9 +26,12 @@ export default Ember.Controller.extend({
         equalTo: username,
       }).then((users) => {
         if (typeof users.get("firstObject") !== 'undefined' && users.get("firstObject").get('password') === password) {
+          sessionStorage.username = users.get("firstObject").get('username');
+          sessionStorage.authenticated = true;
           this.set('responseMessage', '');
           this.set('username', '');
           this.set('password', '');
+          window.location.reload();
           this.transitionToRoute('/');
         } else {
           this.set('responseMessage', 'Wrong username or password.');

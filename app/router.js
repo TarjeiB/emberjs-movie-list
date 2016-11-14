@@ -8,11 +8,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('/');
-  this.route('login');
-  this.route('register');
+  this.route('account');
   this.route('create-list');
+  this.route('login');
+  this.route('logout');
   this.route('movie', { path: "movie/:movie_imdbID"});
   this.route('movies');
+  this.route('register');
   this.route('test');
 });
 

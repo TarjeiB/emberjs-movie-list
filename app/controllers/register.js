@@ -21,10 +21,13 @@ export default Ember.Controller.extend({
       });
 
       newUser.save().then((response) => {
-        this.set('responseMessage', `Welcome to Movie Lists, ${response.get('username')}!`);
+        sessionStorage.username = username;
+        sessionStorage.authenticated = true;
         this.set('email', '');
         this.set('username', '');
         this.set('password', '');
+        window.location.reload();
+        this.transitionToRoute('/');
       });
     }
   }

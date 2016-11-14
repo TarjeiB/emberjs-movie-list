@@ -1,7 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  queryParams: {
+    title: {
+      refreshModel: true
+    }
+  },
   model: function(params) {
-    return this.store.findAll('movie', params.movie_imdbID);
+    return this.store.query('movie', {t: "Matrix"});
   }
 });

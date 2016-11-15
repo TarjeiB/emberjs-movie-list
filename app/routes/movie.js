@@ -1,13 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  queryParams: {
-    title: {
-      refreshModel: true
-    }
-  },
+
   model: function(params) {
-    //return this.store.findAll('movie'); //working
-    return this.store.query('movie', {}); //emberfire error
+    localStorage.movie_id = params.movie_imdbID;
+    localStorage.search_type = 'id';
+    return this.store.findAll('movie'); //working
+    //return this.store.query('movie', {}); //emberfire error
   }
 });

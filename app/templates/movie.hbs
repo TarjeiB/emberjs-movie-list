@@ -1,12 +1,12 @@
 <div>
   <div>
     {{input type="text" value=title placeholder="Title" enter="search"}}
-    <button {{action "search" title}}>Search</button>
+    {{input type="text" value=year placeholder="Year"}}
+    <button {{action "search" title year}}>Search</button>
   </div>
-{{#each model as |movie|}}
-  <p> {{movie.Title}} </p>
-  <p>Year: {{movie.Year}}</p>
-  <p>IMDB rating {{movie.imdbRating}}</p>
-  <img src="{{movie.Poster}}" />
-{{/each}}
+  <p> {{model.firstObject.Title}} </p>
+  <p>Year: {{model.lastObject.Year}}</p>
+  <p>IMDB rating {{model.lastObject.imdbRating}}</p>
+  <img src="{{model.lastObject.Poster}}" />
+
 </div>

@@ -7,6 +7,7 @@ export default Ember.Route.extend({
     }
   },
   model: function(params) {
-    return this.store.query('movie', {t: "Matrix"});
+    //return this.store.findAll('movie'); //working
+    return this.store.query('movie', {}); //emberfire error
   }
 });

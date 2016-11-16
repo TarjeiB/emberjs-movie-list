@@ -3,8 +3,7 @@
   <div class="row">
     {{#each model as |movie|}}
       <h1> {{movie.Title}} </h1>
-      <p>Release Date: {{movie.Year}}</p>
-      <p>IMDB rating: {{movie.imdbRating}}</p>
+      <p>Release Date: {{movie.Year}} | IMDB rating: {{movie.imdbRating}}</p>
       <img src="{{movie.Poster}}" /> 
     {{else}}
       <h1>We couldn't find that movie.</h1>

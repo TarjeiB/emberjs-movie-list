@@ -14,5 +14,5 @@ export default DS.Model.extend({
   Poster: DS.attr('string'),
   Metascore: DS.attr('string'),
   imdbRating: DS.attr('string'),
-  imdbID: DS.attr('string'),
+  imdbID: DS.attr('string')
 });

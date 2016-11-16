@@ -20,8 +20,7 @@ export default DS.RESTSerializer.extend({
               Poster: payload.Poster,
               Metascore: payload.Metascore,
               imdbRating: payload.imdbRating,
-              imdbID: payload.imdbID,
-
+              imdbID: payload.imdbID
              }
          }
       };

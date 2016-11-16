@@ -1,5 +1,14 @@
-<h1>Welcome</h1>
-<div>
-  {{input type="text" value=title placeholder="Title" enter="search"}}
-  <button {{action "search" title}}>Search</button>
+<div class="container">
+
+  <div class="row">
+    <h1>Search for a movie</h1>
+    <form role="form" {{action 'search' on='submit' }} class="search-form form-inline well col-sm-18">
+      <div class="form-group">
+        <label class="sr-only" for="search">Search:</label>
+        {{input class="form-search form-control" id="search" type="text" placeholder="Movie title" enter="search" value=title}}
+        <button type="submit" class="btn btn-custom">Search</button>
+      </div>
+    </form>
+  </div>
+
 </div>

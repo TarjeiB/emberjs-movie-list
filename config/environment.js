@@ -9,19 +9,24 @@ module.exports = function (environment) {
     locationType: 'auto',
 
     firebase: {
-      apiKey: "AIzaSyAVlbQ58wisSaVxtkm-NM8eQwWOuMn2ZE4",
-      authDomain: "movie-list-7e973.firebaseapp.com",
-      databaseURL: "https://movie-list-7e973.firebaseio.com",
-      storageBucket: "movie-list-7e973.appspot.com",
-      messagingSenderId: "956768705350"
+      apiKey: 'AIzaSyAVlbQ58wisSaVxtkm-NM8eQwWOuMn2ZE4',
+      authDomain: "'movie-list-7e973.firebaseapp.com'",
+      databaseURL: 'https://movie-list-7e973.firebaseio.com',
+      storageBucket: 'movie-list-7e973.appspot.com',
+      messagingSenderId: '956768705350'
+    },
+    
+    torii: {
+      sessionServiceName: 'session'
     },
 
     // if using ember-cli-content-security-policy
-    contentSecurityPolicy: {
-      'script-src': "'self' 'unsafe-eval' apis.google.com",
-      'frame-src': "'self' https://*.firebaseapp.com",
-      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
-    },
+
+  contentSecurityPolicy: {
+    'script-src': "'self' 'unsafe-eval' apis.google.com",
+    'frame-src': "'self' https://*.firebaseapp.com",
+    'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+  },
 
     EmberENV: {
       FEATURES: {
@@ -41,11 +46,11 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_RESOLVER = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {

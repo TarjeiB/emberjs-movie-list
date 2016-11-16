@@ -1,12 +1,15 @@
-<div>
-  <div>
-    {{input type="text" value=title placeholder="Title" enter="search"}}
-    <button {{action "search" title}}>Search</button>
+<div class="container">
+
+  <div class="row">
+    {{#each model as |movie|}}
+      <h1> {{movie.Title}} </h1>
+      <p>Release Date: {{movie.Year}}</p>
+      <p>IMDB rating: {{movie.imdbRating}}</p>
+      <img src="{{movie.Poster}}" /> 
+    {{else}}
+      <h1>We couldn't find that movie.</h1>
+      <p class="text-push">Please make sure you've spelled the title correctly, or try searching for a different title.</p>
+    {{/each}}
   </div>
-{{#each model as |movie|}}
-  <p> {{movie.Title}} </p>
-  <p>Year: {{movie.Year}}</p>
-  <p>IMDB rating {{movie.imdbRating}}</p>
-  <img src="{{movie.Poster}}" />
-{{/each}}
+  
 </div>

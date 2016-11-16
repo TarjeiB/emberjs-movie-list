@@ -1,1 +1,48 @@
 @import "bootstrap";
+.btn-custom {
+  color: #fff;
+  background-color: darksalmon;
+}
+
+.btn-custom:hover {
+  color: #fff;
+  background-color: #e58564;
+}
+
+.darksalmon {
+  color: darksalmon;
+}
+
+.dimgrey {
+  color: dimgrey;
+}
+
+.form-control-feedback {
+  top: 15px;
+  right: 30px;
+}
+
+.glyphicon.glyphicon-pencil,
+.glyphicon.glyphicon-lock {
+  font-size: 30px;
+}
+
+.navbar .nav,
+.navbar .nav>li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+}
+
+.navbar-inner {
+  text-align: center;
+}
+
+.text-push {
+  margin-left: 5px;
+}
+
+.text-push-more {
+  margin-left: 20px;
+}

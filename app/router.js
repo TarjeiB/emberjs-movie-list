@@ -8,14 +8,11 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('/');
-  this.route('account');
+  this.authenticatedRoute('account');
   this.route('create-list');
+  this.route('error', { path: '/*wildcard' });
   this.route('login');
-  this.route('logout');
   this.route('movie', { path: "movie/:movie_imdbID"});
-  this.route('movies');
-  this.route('register');
-  this.route('test');
 });
 
 export default Router;

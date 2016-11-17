@@ -1,14 +1,52 @@
 <div class="container">
 
   <div class="row">
-    {{#each model as |movie|}}
-      <h1> {{movie.Title}} </h1>
-      <p>Release Date: {{movie.Year}} | IMDB rating: {{movie.imdbRating}}</p>
-      <img src="{{movie.Poster}}" /> 
+    
+    {{#unless searchedFor}}
+    <h1>Search for a movie</h1>
     {{else}}
-      <h1>We couldn't find that movie.</h1>
-      <p class="text-push">Please make sure you've spelled the title correctly, or try searching for a different title.</p>
+    <h1>Showing results for: <span class="cap-first-letter">{{searchedFor}}</span></h1>
+    {{/unless}}
+
+    <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline well col-sm-18">
+      <div class="form-group">
+        <label class="sr-only" for="search">Search:</label> {{input class="form-search form-control" type="text" placeholder="Movie title" enter="search" value=movieTitle}}
+        <button type="submit" class="btn btn-custom">Search</button>
+      </div>
+    </form>
+
+  </div>
+
+  {{#if selectedMovie}}
+  <div class="well">
+    <h3>{{selectedMovie.title}}</h3>
+  </div>
+  {{/if}}
+
+  <div class="row">
+    {{#each model as |movie|}}
+    <div class="list-group-item row" {{action 'selectMovie' movie on='mouseEnter' }}>
+
+      <div class="col-xs-4 inline">
+        <h2 class="top-shy">{{movie.title}}</h2>
+        {{#if (not-eq movie.poster 'N/A')}}
+        <img src="{{movie.poster}}" alt="Image" /> {{/if}}
+      </div>
+
+      <div class="col-xs-8 inline">
+        <p>Released: {{movie.released}}</p>
+        <p>Genre: {{movie.genre}}</p>
+        <p>Plot: {{movie.plot}}</p>
+        <p>IMDb rating: {{movie.imdbRating}}</p>
+        <p>Type: {{movie.type}}</p>
+        <p>Response: {{movie.response}}</p>
+        <p>IMDb votes: {{movie.imdbVotes}}</p>
+      </div>
+
+    </div>{{else}}
+    <div class="list-group-item"><strong>No search results found.</strong></div>
     {{/each}}
   </div>
-  
+
+
 </div>

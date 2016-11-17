@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   firebaseApp: Ember.inject.service(),
 
-  setupController: function (controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
   },
 
@@ -23,7 +23,7 @@ export default Ember.Route.extend({
       const password = controller.get('loginPassword');
       let valid = true;
 
-      auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+      auth.signInWithEmailAndPassword(email, password).catch(error => {
         controller.set('error-login', error.code);
         valid = false;
       }).then(() => {
@@ -42,7 +42,7 @@ export default Ember.Route.extend({
       const username = controller.get('registerUsername');
       const password = controller.get('registerPassword');
 
-      auth.createUserWithEmailAndPassword(email, password).catch(function (error) {
+      auth.createUserWithEmailAndPassword(email, password).catch(error => {
         controller.set('error-register', error.code);
       }).then(() => {
         auth.currentUser.updateProfile({

@@ -1,15 +1,12 @@
 <div class="container">
-
   <div class="row">
     <h1>Search for a movie</h1>
-    <form role="form" {{action 'search' title year on='submit' }} class="search-form form-inline well col-sm-18">
+    <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline well col-sm-18">
       <div class="form-group">
         <label class="sr-only" for="search">Search:</label>
-        {{input class="form-search form-control" type="text" placeholder="Movie title" enter="search" value=title}}
-        {{input class="form-search form-control" type="text" placeholder="Year (optional)" enter="search" value=year}}
+        {{input class="form-search form-control" type="text" placeholder="Movie title" enter="search" value=movieTitle}}
         <button type="submit" class="btn btn-custom">Search</button>
       </div>
     </form>
   </div>
-
 </div>

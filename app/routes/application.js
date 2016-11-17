@@ -3,12 +3,14 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   firebaseApp: Ember.inject.service(),
 
-  setupController: function (controller, model) {
+  selectedMovie: false,
+
+  setupController(controller, model) {
     this._super(controller, model);
   },
 
   beforeModel: function () {
-    return this.get('session').fetch().catch(function () {});
+    return this.get('session').fetch().catch(() => {});
   },
 
   actions: {

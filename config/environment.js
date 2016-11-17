@@ -10,7 +10,7 @@ module.exports = function (environment) {
 
     firebase: {
       apiKey: 'AIzaSyAVlbQ58wisSaVxtkm-NM8eQwWOuMn2ZE4',
-      authDomain: "'movie-list-7e973.firebaseapp.com'",
+      authDomain: 'movie-list-7e973.firebaseapp.com',
       databaseURL: 'https://movie-list-7e973.firebaseio.com',
       storageBucket: 'movie-list-7e973.appspot.com',
       messagingSenderId: '956768705350'

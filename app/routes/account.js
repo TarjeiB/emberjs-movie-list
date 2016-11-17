@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   firebaseApp: Ember.inject.service(),
 
-  setupController: function (controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
   },
 
@@ -24,7 +24,7 @@ export default Ember.Route.extend({
       const currentPassword = controller.get('currentPassword');
       let currentEmail;
 
-      user.providerData.forEach(function (profile) {
+      user.providerData.forEach(profile => {
         currentEmail = profile.email;
       });
 
@@ -36,30 +36,30 @@ export default Ember.Route.extend({
           if (typeof username !== 'undefined' && username.length > 1) {
             user.updateProfile({
               displayName: username
-            }).then(function () {
+            }).then(() => {
               controller.set('success', '... Finished! Your account information was updated successfully.');
               controller.set('error', '');
-            }, function (error) {
+            }, error => {
               controller.set('success', '');
               controller.set('error', error.code);
             });
           }
 
           if (typeof email !== 'undefined' && email.length > 1) {
-            user.updateEmail(email).then(function () {
+            user.updateEmail(email).then(() => {
               controller.set('success', '... Finished! Your account information was updated successfully.');
               controller.set('error', '');
-            }, function (error) {
+            }, error => {
               controller.set('success', '');
               controller.set('error', error.code);
             });
           }
 
           if (typeof password !== 'undefined' && password.length > 1) {
-            user.updatePassword(password).then(function () {
+            user.updatePassword(password).then(() => {
               controller.set('success', '... Finished! Your account information was updated successfully.');
               controller.set('error', '');
-            }, function (error) {
+            }, error => {
               controller.set('success', '');
               controller.set('error', error.code);
             });

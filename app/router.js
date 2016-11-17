@@ -12,7 +12,7 @@ Router.map(function() {
   this.route('create-list');
   this.route('error', { path: '/*wildcard' });
   this.route('login');
-  this.route('movie', { path: "movie/:movie_imdbID"});
+  this.route('movie');
 });
 
 export default Router;

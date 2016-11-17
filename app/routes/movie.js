@@ -1,16 +1,42 @@
 import Ember from 'ember';
 
+let movieTitle = '';
+
 export default Ember.Route.extend({
 
-  setupController: function (controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
+    movieTitle = '';
   },
 
-  model: function(params) {
-    localStorage.movie_id = params.movie_imdbID;
-    localStorage.search_type = 'id';
-    return this.store.findAll('movie'); //working
-    //return this.store.query('movie', {}); //emberfire error
+  queryParams: {
+    title: {
+      refreshModel: true
+    }
+  },
+
+  beforeModel(transition) {
+    movieTitle = transition.queryParams;
+  },
+
+  model() {
+    return this.store.findQuery('search', 'movie', movieTitle.title);
+  },
+
+  actions: {
+
+    search(movieTitle) {
+      if (movieTitle) {
+        this.transitionTo('/movie?title=' + movieTitle);
+        this.get('controller').set('movieTitle', '');
+        this.get('controller').set('searchedFor', movieTitle);
+      }
+    },
+
+    selectMovie(movie) {
+      this.controller.set('selectedMovie', movie);
+    }
+
   }
-  
+
 });

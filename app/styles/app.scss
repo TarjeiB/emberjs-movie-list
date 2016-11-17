@@ -9,6 +9,10 @@
   background-color: #e58564;
 }
 
+.cap-first-letter {
+    text-transform: capitalize;
+}
+
 .darksalmon {
   color: darksalmon;
 }
@@ -45,4 +49,9 @@
 
 .text-push-more {
   margin-left: 20px;
+}
+
+.top-shy {
+  margin-top: 0;
+  margin-left: 5px;
 }

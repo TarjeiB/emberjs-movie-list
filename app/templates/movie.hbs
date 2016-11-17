@@ -1,16 +1,16 @@
 <div class="container">
 
   <div class="row">
-    
     {{#unless searchedFor}}
-    <h1>Search for a movie</h1>
+      <h1>Search for a movie</h1>
     {{else}}
-    <h1>Showing results for: <span class="cap-first-letter">{{searchedFor}}</span></h1>
+      <h1>Showing results for: <span class="cap-first-letter">{{searchedFor}}</span></h1>
     {{/unless}}
 
     <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline well col-sm-18">
       <div class="form-group">
-        <label class="sr-only" for="search">Search:</label> {{input class="form-search form-control" type="text" placeholder="Movie title" enter="search" value=movieTitle}}
+        <label class="sr-only" for="search">Search:</label>
+        {{input class="form-search form-control" type="text" placeholder="Movie title" enter="search" value=movieTitle}}
         <button type="submit" class="btn btn-custom">Search</button>
       </div>
     </form>
@@ -43,10 +43,10 @@
         <p>IMDb votes: {{movie.imdbVotes}}</p>
       </div>
 
-    </div>{{else}}
-    <div class="list-group-item"><strong>No search results found.</strong></div>
+    </div>
+    {{else}}
+      <div class="list-group-item"><strong>No search results found.</strong></div>
     {{/each}}
   </div>
-
 
 </div>

@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('error', { path: '/*wildcard' });
   this.route('login');
   this.route('movie', { path: "movie/:movie_imdbID"});
+  this.route('movies');
 });
 
 export default Router;

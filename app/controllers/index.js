@@ -9,10 +9,8 @@ export default Ember.Controller.extend({
       localStorage.year = year;
       localStorage.search_type = 'title';
 
-      // TODO: Search for movie, display at movie/imdbID
-
       // Hardcoded route
-      this.transitionToRoute('movie', "tt2488496");
+      this.transitionToRoute('movie', "id");
     }
 
   }

@@ -14,8 +14,11 @@ export default DS.RESTAdapter.extend({
     if (search_type === 'id') {
       return "http://www.omdbapi.com/?i=" + movie_id + "&plot=short&r=json";
     } else {
+      localStorage.search_type = 'id';
       return "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
     }
+
+    // TODO: Update movie/imdbID after fetching a movie
 
   }
 

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        {{#unless movie.title}}
+        <h1>We couldn't find the movie "{{title}}"</h1>
+        {{else}}
+        <h1 class="top-shy">{{movie.title}} <span class="h3">({{movie.year}})</span></h1>
+        <div class="row">
+            <div class="col-sm-4">
+                {{#if (not-eq movie.poster 'N/A')}}
+                <img class="poster-padding" src="{{movie.poster}}" alt="Image" /> {{/if}}
+            </div>
+            <div class="text-push-more"> 
+                <br>
+                <p><strong>Released:</strong> {{movie.released}}</p>
+                <p><strong>Runtime:</strong> {{movie.runtime}}</p>
+                <p><strong>Genre:</strong> {{movie.genre}}</p>
+                <br>
+                <p><strong>Director:</strong> {{movie.director}}</p>
+                <p><strong>Writer:</strong> {{movie.writer}}</p>
+                <p><strong>Actors:</strong> {{movie.actors}}</p>
+                <br>
+                <p><strong>Language:</strong> {{movie.language}}</p>
+                <p><strong>Country:</strong> {{movie.country}}</p>
+                <p><strong>Awards:</strong> {{movie.awards}}</p>
+                <br>
+                <p><strong>Metascore:</strong> {{movie.metascore}}</p>
+                <p><strong>IMDb Rating:</strong> {{movie.imdbRating}}</p>
+                <p><strong>IMDb Votes:</strong> {{movie.imdbVotes}}</p>
+            </div>
+        </div>
+        <p class="h3">Movie Plot</p>
+        <p>{{movie.plot}}</p>
+
+        {{/unless}}
+    </div>
+</div>

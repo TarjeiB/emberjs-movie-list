@@ -10,7 +10,7 @@
 }
 
 .cap-first-letter {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .darksalmon {
@@ -31,6 +31,17 @@
   font-size: 30px;
 }
 
+.list-group-item {
+  min-height: 500px;
+  max-height: 500px;
+  text-align: center;
+}
+
+.list-group-item:hover {
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
+
 .navbar .nav,
 .navbar .nav>li {
   display: inline-block;
@@ -41,6 +52,11 @@
 
 .navbar-inner {
   text-align: center;
+}
+
+.poster-padding {
+  max-height: 440px;
+  padding-bottom: 5px;
 }
 
 .text-push {

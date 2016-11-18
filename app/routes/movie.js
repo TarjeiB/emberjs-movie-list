@@ -33,8 +33,8 @@ export default Ember.Route.extend({
       }
     },
 
-    selectMovie(movie) {
-      this.controller.set('selectedMovie', movie);
+    selectMovie(movieTitle) {
+      this.transitionTo('/view-movie?title=' + movieTitle);
     }
 
   }

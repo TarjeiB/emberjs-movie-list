@@ -2,9 +2,9 @@
 
   <div class="row">
     {{#unless searchedFor}}
-      <h1>Search for a movie</h1>
+    <h1>Search for a movie</h1>
     {{else}}
-      <h1>Showing results for: <span class="cap-first-letter">{{searchedFor}}</span></h1>
+    <h1>Showing results for: <span class="cap-first-letter">{{searchedFor}}</span></h1>
     {{/unless}}
 
     <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline well col-sm-18">
@@ -17,36 +17,24 @@
 
   </div>
 
-  {{#if selectedMovie}}
-  <div class="well">
-    <h3>{{selectedMovie.title}}</h3>
-  </div>
-  {{/if}}
-
   <div class="row">
-    {{#each model as |movie|}}
-    <div class="list-group-item row" {{action 'selectMovie' movie on='mouseEnter' }}>
 
-      <div class="col-xs-4 inline">
-        <h2 class="top-shy">{{movie.title}}</h2>
+      {{#each model as |movie index|}} {{#if (alternate-col index)}}
+      <div class="list-group-item col-sm-6" {{action 'selectMovie' movie.title on='mouseDown' }}>
+        <h2 class="top-shy">{{movie.title}} <span class="h3">({{movie.year}})</span></h2>
         {{#if (not-eq movie.poster 'N/A')}}
-        <img src="{{movie.poster}}" alt="Image" /> {{/if}}
+        <img class="poster-padding" src="{{movie.poster}}" alt="Image" />
+        {{/if}}
       </div>
-
-      <div class="col-xs-8 inline">
-        <p>Released: {{movie.released}}</p>
-        <p>Genre: {{movie.genre}}</p>
-        <p>Plot: {{movie.plot}}</p>
-        <p>IMDb rating: {{movie.imdbRating}}</p>
-        <p>Type: {{movie.type}}</p>
-        <p>Response: {{movie.response}}</p>
-        <p>IMDb votes: {{movie.imdbVotes}}</p>
+      {{else}}
+      <div class="list-group-item col-sm-6" {{action 'selectMovie' movie.title on='mouseDown' }}>
+        <h2 class="top-shy">{{movie.title}} <span class="h3">({{movie.year}})</span></h2>
+        {{#if (not-eq movie.poster 'N/A')}}
+        <img class="poster-padding" src="{{movie.poster}}" alt="Image" />
+        {{/if}}
       </div>
-
-    </div>
-    {{else}}
-      <div class="list-group-item"><strong>No search results found.</strong></div>
-    {{/each}}
+      {{/if}}
+      {{/each}}
   </div>
 
 </div>

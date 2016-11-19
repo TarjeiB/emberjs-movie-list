@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="row">
+
+    {{#unless title}}
+    <h1>Search for movies</h1>
+    {{else}}
+    <h1>Showing results for: <span class="cap-first-letter">{{title}}</span></h1>
+    {{/unless}}
+
+    <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline well col-sm-18">
+      <div class="form-group">
+        <label class="sr-only" for="search">Search:</label>
+        {{input class="form-search form-control" type="text" placeholder="Search for movies" enter="search" value=movieTitle}}
+        <button type="submit" class="btn btn-custom">Search</button>
+      </div>
+    </form>
+
+  </div>
+
+  {{#if title}}
+  <div class="row">
+    {{#each model as |movie index|}}
+      {{#if (alternate-col index)}}
+        <div class="list-group-item col-sm-6" {{action 'selectMovie' movie.title on='mouseDown'}}>
+        {{#search-movie title=movie.title poster=movie.poster year=movie.year}}{{/search-movie}}
+        </div>
+      {{else}}
+        <div class="list-group-item col-sm-6" {{action 'selectMovie' movie.title on='mouseDown'}}>
+        {{#search-movie title=movie.title poster=movie.poster year=movie.year}}{{/search-movie}}
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+  {{/if}}
+
+</div>

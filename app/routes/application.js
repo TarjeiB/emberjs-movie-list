@@ -24,7 +24,14 @@ export default Ember.Route.extend({
       auth.signOut().then(() => {
         window.location.reload(true);
       });
-    }
+    },
+
+    search(movieTitle) {
+      if (movieTitle) {
+        this.transitionTo('/search?title=' + movieTitle);
+        this.get('controller').set('movieTitle', '');
+      }
+    },
 
   }
 });

@@ -7,7 +7,6 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     movieTitle = '';
-    controller.set('movie', model);
   },
 
   queryParams: {
@@ -21,7 +20,15 @@ export default Ember.Route.extend({
   },
 
   model() {
-    return this.store.findQuery('specific', 'movie', movieTitle.title);
+    return this.store.findQuery('search', 'movie', movieTitle.title);
+  },
+
+  actions: {
+
+    selectMovie(movieTitle) {
+      this.transitionTo('/movie?title=' + movieTitle);
+    }
+
   }
 
 });

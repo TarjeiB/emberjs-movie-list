@@ -11,18 +11,6 @@ export default Ember.Route.extend({
 
   beforeModel(transition) {
     movieTitle = transition.queryParams;
-  },
-
-  actions: {
-
-    search(movieTitle) {
-      if (movieTitle) {
-        this.transitionTo('/movie?title=' + movieTitle);
-        this.get('controller').set('movieTitle', '');
-        this.controllerFor('movie').set('searchedFor', movieTitle);
-      }
-    }
-
   }
 
 });

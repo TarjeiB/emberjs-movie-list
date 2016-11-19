@@ -1,0 +1,8 @@
+{{#if (gte title.length 30)}}
+    <h3 class="top-shy">{{title}} <span class="h4">({{year}})</span></h3>
+{{else}}
+    <h2 class="top-shy">{{title}} <span class="h3">({{year}})</span></h2>
+{{/if}}
+{{#if (not-eq poster 'N/A')}}
+    <img class="poster-padding" src="{{poster}}" alt="Image" />
+{{/if}}

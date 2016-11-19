@@ -1,40 +1,29 @@
 <div class="container">
-
-  <div class="row">
-    {{#unless searchedFor}}
-    <h1>Search for a movie</h1>
-    {{else}}
-    <h1>Showing results for: <span class="cap-first-letter">{{searchedFor}}</span></h1>
-    {{/unless}}
-
-    <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline well col-sm-18">
-      <div class="form-group">
-        <label class="sr-only" for="search">Search:</label>
-        {{input class="form-search form-control" type="text" placeholder="Movie title" enter="search" value=movieTitle}}
-        <button type="submit" class="btn btn-custom">Search</button>
-      </div>
-    </form>
-
-  </div>
-
-  <div class="row">
-
-      {{#each model as |movie index|}} {{#if (alternate-col index)}}
-      <div class="list-group-item col-sm-6" {{action 'selectMovie' movie.title on='mouseDown' }}>
-        <h2 class="top-shy">{{movie.title}} <span class="h3">({{movie.year}})</span></h2>
-        {{#if (not-eq movie.poster 'N/A')}}
-        <img class="poster-padding" src="{{movie.poster}}" alt="Image" />
-        {{/if}}
-      </div>
-      {{else}}
-      <div class="list-group-item col-sm-6" {{action 'selectMovie' movie.title on='mouseDown' }}>
-        <h2 class="top-shy">{{movie.title}} <span class="h3">({{movie.year}})</span></h2>
-        {{#if (not-eq movie.poster 'N/A')}}
-        <img class="poster-padding" src="{{movie.poster}}" alt="Image" />
-        {{/if}}
-      </div>
-      {{/if}}
-      {{/each}}
-  </div>
-
+    <div class="row">
+        {{#unless movie.title}}
+        <h1>We couldn't find the movie "{{title}}"</h1>
+        {{else}}
+        <h1>{{movie.title}} <span class="h3">({{movie.year}})</span></h1>
+        <div class="row">
+            <div class="col-sm-4">
+                {{#if (not-eq movie.poster 'N/A')}}
+                    <img class="padding-movie" src="{{movie.poster}}" alt="Image" />
+                {{/if}}
+            </div>
+            {{#if (not-eq movie.poster 'N/A')}}
+                {{#view-movie class-names='col-sm-6' released=movie.released runtime=movie.runtime 
+                genre=movie.genre director=movie.director writer=movie.writer actors=movie.actors 
+                language=movie.language country=movie.country awards=movie.awards metascore=movie.metascore 
+                imdbRating=movie.imdbRating imdbVotes=movie.imdbVotes}}{{/view-movie}}
+            {{else}}
+                {{#view-movie class-names='text-push-more' released=movie.released runtime=movie.runtime 
+                genre=movie.genre director=movie.director writer=movie.writer actors=movie.actors 
+                language=movie.language country=movie.country awards=movie.awards metascore=movie.metascore 
+                imdbRating=movie.imdbRating imdbVotes=movie.imdbVotes}}{{/view-movie}}
+            {{/if}}
+        </div>
+        <p class="text-push h3">Movie Plot</p>
+        <p class="text-push">{{movie.plot}}</p>
+        {{/unless}}
+    </div>
 </div>

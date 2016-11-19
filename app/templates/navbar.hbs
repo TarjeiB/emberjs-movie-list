@@ -7,19 +7,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-            {{#link-to 'index' class="navbar-brand"}}Movie Lists{{/link-to}}
+                </button> {{#link-to 'index' class="navbar-brand"}}Movie Lists{{/link-to}}
             </div>
             <div class="nav-collapse" id="main-navbar">
                 <ul class="nav navbar-nav">
                     {{#nav-link-to 'index'}}Home{{/nav-link-to}}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <form role="form" {{action 'search' movieTitle on='submit' }} class="search-form form-inline col-sm-12 push-down">
+                        <div class="form-group">
+                            <label class="sr-only" for="search">Search:</label> {{input class="form-search form-control"
+                            type="text" placeholder="Search for movies" enter="search" value=movieTitle}}
+                            <button type="submit" class="btn btn-custom">Search</button>
+                        </div>
+                    </form>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     {{#unless session.isAuthenticated}}
                         {{#nav-link-to 'login'}}Login / Register{{/nav-link-to}}
                     {{else}}
                         {{#nav-link-to 'account'}}{{session.currentUser.displayName}}{{/nav-link-to}}
-                        {{#nav-link-to '/' invokeAction='logout'}}Logout{{/nav-link-to}}
+                    {{#nav-link-to '/' invokeAction='logout'}}Logout{{/nav-link-to}}
                     {{/unless}}
                 </ul>
             </div>

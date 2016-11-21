@@ -6,7 +6,7 @@ export default DS.RESTAdapter.extend({
   query(searchType, model, query) {
     if (searchType === 'search') {
 
-      return Ember.$.getJSON('http://www.omdbapi.com/?s=' + query).then(result => {
+      return Ember.$.getJSON('https://www.omdbapi.com/?s=' + query).then(result => {
         if (result.hasOwnProperty('Search')) {
 
           return result.Search.map(val => {
@@ -22,7 +22,7 @@ export default DS.RESTAdapter.extend({
       });
 
     } else {
-      return Ember.$.getJSON('http://www.omdbapi.com/?t=' + query + '&y=&plot=full&r=json').then(result => {
+      return Ember.$.getJSON('https://www.omdbapi.com/?t=' + query + '&y=&plot=full&r=json').then(result => {
         return {
           id: result.imdbID,
           title: result.Title,

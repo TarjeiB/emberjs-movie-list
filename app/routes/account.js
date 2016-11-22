@@ -24,6 +24,8 @@ export default Ember.Route.extend({
       const currentPassword = controller.get('currentPassword');
       let currentEmail;
 
+      const success = '... Finished! Your account information was updated successfully.';
+
       user.providerData.forEach(profile => {
         currentEmail = profile.email;
       });
@@ -37,7 +39,7 @@ export default Ember.Route.extend({
             user.updateProfile({
               displayName: username
             }).then(() => {
-              controller.set('success', '... Finished! Your account information was updated successfully.');
+              controller.set('success', success);
               controller.set('error', '');
             }, error => {
               controller.set('success', '');
@@ -47,7 +49,7 @@ export default Ember.Route.extend({
 
           if (typeof email !== 'undefined' && email.length > 1) {
             user.updateEmail(email).then(() => {
-              controller.set('success', '... Finished! Your account information was updated successfully.');
+              controller.set('success', success);
               controller.set('error', '');
             }, error => {
               controller.set('success', '');
@@ -57,7 +59,7 @@ export default Ember.Route.extend({
 
           if (typeof password !== 'undefined' && password.length > 1) {
             user.updatePassword(password).then(() => {
-              controller.set('success', '... Finished! Your account information was updated successfully.');
+              controller.set('success', success);
               controller.set('error', '');
             }, error => {
               controller.set('success', '');

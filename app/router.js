@@ -9,7 +9,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('/');
   this.authenticatedRoute('account');
-  this.route('create-list');
   this.route('error', { path: '/*wildcard' });
   this.route('login');
   this.route('movie');
